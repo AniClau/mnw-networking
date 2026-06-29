@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  
+  --color-brand-cream: #f8f7f4;
+  --color-brand-cream-dark: #eeebe2;
+  --color-brand-dark: #0c2340; /* Navy Blue from Logo */
+  --color-brand-dark-deep: #051020; /* Darker Navy */
+  --color-brand-accent: #0d3c94; /* Royal Blue from Logo */
+  --color-brand-accent-light: #00aeff; /* Cyan from Logo */
+  --color-brand-accent-dark: #072663; /* Darker Blue */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-sans);
+    background-color: var(--color-brand-cream);
+    color: var(--color-brand-dark);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5bba8;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a89d89;
+}
+
+/* Base utility for Glassmorphism */
+.glass {
+  background: rgba(28, 28, 26, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-light {
+  background: rgba(247, 244, 235, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+@media (max-width: 1023px) {
+  .mobile-hide {
+    display: none !important;
+  }
+}
