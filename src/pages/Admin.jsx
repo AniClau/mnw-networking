@@ -19,7 +19,7 @@ export default function Admin() {
   const loadActividades = async () => {
     setFetching(true);
     try {
-      const res = await fetch('http://localhost:3001/api/actividades');
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/actividades`);
       const data = await res.json();
       setActividades(data);
     } catch {
