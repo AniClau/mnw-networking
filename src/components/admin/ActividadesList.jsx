@@ -10,7 +10,7 @@ export default function ActividadesList({ actividades, onEdit, onDelete }) {
   const handleDelete = async (id) => {
     setDeletingId(id);
     try {
-      const res = await fetch(`http://localhost:3001/api/actividades/${id}`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/actividades/${id}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -46,7 +46,7 @@ export default function ActividadesList({ actividades, onEdit, onDelete }) {
           <div className="w-20 h-14 rounded-lg overflow-hidden bg-white/5 shrink-0">
             {act.imagen ? (
               <img
-                src={`http://localhost:3001${act.imagen}`}
+                src={`${import.meta.env.VITE_API_URL}${act.imagen}`}
                 alt={act.titulo}
                 className="w-full h-full object-cover"
               />
