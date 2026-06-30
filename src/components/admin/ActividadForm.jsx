@@ -14,7 +14,7 @@ export default function ActividadForm({ existing, onSuccess, onCancel }) {
     fecha: existing?.fecha || '',
     destacada: existing?.destacada || false,
   });
-  const [preview, setPreview] = useState(existing?.imagen ? `http://localhost:3001${existing.imagen}` : null);
+  const [preview, setPreview] = useState(existing?.imagen ? `${import.meta.env.VITE_API_URL}${existing.imagen}` : null);
   const [file, setFile] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -53,8 +53,8 @@ export default function ActividadForm({ existing, onSuccess, onCancel }) {
       if (file) formData.append('imagen', file);
 
       const url = existing
-        ? `http://localhost:3001/api/actividades/${existing.id}`
-        : 'http://localhost:3001/api/actividades';
+        ? `${import.meta.env.VITE_API_URL}/api/actividades/${existing.id}`
+        : `${import.meta.env.VITE_API_URL}/api/actividades`;
 
       const res = await fetch(url, {
         method: existing ? 'PUT' : 'POST',
