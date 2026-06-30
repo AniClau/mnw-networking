@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     if (token) {
       // Verify token is still valid
-      fetch('http://localhost:3001/api/auth/verify', {
+      fetch(`${import.meta.env.VITE_API_URL}/api/auth/verify`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then(r => r.json())
